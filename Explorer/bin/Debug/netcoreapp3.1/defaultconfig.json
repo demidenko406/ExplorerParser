@@ -1,0 +1,4 @@
+﻿{
+	"CollectionConnectionString": "collection.xml",
+	"DeletedConnectionString": "bin.json"
+}
