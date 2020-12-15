@@ -89,14 +89,6 @@
                               Command="{Binding DecompressCollectionCommand}"
                               CommandParameter="{Binding SelectedFileEntity}">
                     </MenuItem>
-                    <MenuItem Header="Show Deleted Files"
-                              Command="{Binding ShowDeletedCommand}"
-                              ItemsSource="{Binding DeletedCollection}">
-                    </MenuItem>
-                    <MenuItem Header="Show Collection History"
-                              Command="{Binding ShowCollectionCommand}"
-                              ItemsSource="{Binding ParsedCollection}">
-                    </MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>
             </ListView>

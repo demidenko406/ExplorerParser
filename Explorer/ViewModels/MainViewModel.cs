@@ -89,7 +89,6 @@ namespace Explorer.ViewModels
             {
                 MyFiles.Add(fileViewModel);
                 collectionHistory.Collection += MyFiles.Last().FullName;
-                collectionHistory.Collection += "\n";
                 collectionHistory.UpdateCollection();
             }
         }
@@ -120,10 +119,14 @@ namespace Explorer.ViewModels
 
         private void MoveBack(object obj)
         {
-            history.MoveBack();
-            var current = history.Current;
-            FilePath = current.DirectoryPath;
-            OpenDirectory();
+            if (FilePath != null && 
+                history.Current.DirectoryPath != "C:\\")
+            {
+                history.MoveBack();
+                var current = history.Current;
+                FilePath = current.DirectoryPath;
+                OpenDirectory();
+            }
         }
 
         private void Open(object passedObject)
@@ -141,9 +144,7 @@ namespace Explorer.ViewModels
         private void OpenDirectory()
         {
             DirectoriesAndFiles.Clear();
-
             var directoryInfo = new DirectoryInfo(FilePath);
-
             foreach (var directory in directoryInfo.GetDirectories())
             {
                 if (!directory.Attributes.HasFlag(FileAttributes.Hidden))

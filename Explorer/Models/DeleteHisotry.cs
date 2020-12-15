@@ -14,8 +14,8 @@ namespace Explorer.Models
             using (var file = File.Open(Config.DeletedTarget, FileMode.Create))
             {
                 var writer = new StreamWriter(file);
-                var log = JsonParser.Serialize(this);
-                writer.Write(log);
+                var deletedFiles = JsonParser.Serialize(this);
+                writer.Write(deletedFiles);
                 writer.Close();
             }
         }
